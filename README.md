@@ -2,6 +2,8 @@
 
 Twirvo is a high-fidelity decentralized social protocol engineered on the **Solana Blockchain**. By leveraging the native **SPL Memo Program**, Twirvo etches permanent, censorship-resistant social interactions directly into the global ledger, transforming a blockchain into a living social history.
 
+> 📺 **Demo:** [Watch the Video Here](https://www.youtube.com/watch?v=R7-WEDY-dDc)
+
 ---
 
 ## 🚀 Core Features
