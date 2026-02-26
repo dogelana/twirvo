@@ -83,7 +83,7 @@ export default function HiddenPostsModal() {
                  {hiddenPosts.length > 0 ? 'All hidden posts are currently filtered out (Simulated)' : 'No hidden posts'}
               </p>
             ) : (
-              visibleHiddenPosts.map(sig => {
+              visibleHiddenPosts.map((sig: any) => {
                 const post = txLedger[sig];
                 if (!post) return null;
                 const user = userMap[post.sender] || {};
