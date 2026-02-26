@@ -78,9 +78,13 @@ To run Twirvo locally, ensure you have the following environment variables set:
 ```bash
 npm install
 npm run dev
+```
+
 Connect Wallet: Ensure your wallet is set to the same Solana network as your RPC.
 Onboarding: Whitelisted wallets automatically bypass all protocol and tip fees.
 Exploration: Use the sidebar orbs to navigate the Global Directory, view Notifications, or manage Settings.
+
+---
 
 © 2026 Michael Yebba
 All Rights Reserved. Registered Trademark: Twirvo.
