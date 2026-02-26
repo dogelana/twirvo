@@ -27,7 +27,7 @@ export default function ForensicAuditModal() {
                   const genPost = posts.find((p: any) => p.signature === gen);
                   
                   const pSig = statsMap[examineSig]?.parent;
-                  const pData = [...posts, ...Object.values(statsMap).flatMap(s => s.comments)].find((x: any) => x.signature === pSig);
+                  const pData = [...posts, ...Object.values(statsMap).flatMap((s: any) => s.comments)].find((x: any) => x.signature === pSig);
 
                   return (
                     <>
