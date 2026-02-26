@@ -10,7 +10,7 @@ export default function CommunitiesDirectoryModal() {
 
   const communities = Object.entries(communityMap || {}).map(([id, data]) => ({ id, ...data as any }));
   
-  let filtered = communities.filter(c => {
+  let filtered = communities.filter((c: any) => {
     const creatorUser = userMap[c.owner]?.username?.toLowerCase() || "";
     const creatorWallet = c.owner.toLowerCase();
     const query = search.toLowerCase();
@@ -24,7 +24,7 @@ export default function CommunitiesDirectoryModal() {
   const getStats = (id: string) => communityStatsMap[id] || { members:[], likes:[], dislikes:[], postCount:0, commentCount:0 };
 
   if (directoryTab === 'joined') {
-      filtered = filtered.filter(c => getStats(c.id).members.includes(publicKey?.toString() || ""));
+      filtered = filtered.filter((c:any) => getStats(c.id).members.includes(publicKey?.toString() || ""));
       filtered.sort((a, b) => {
           const aMine = a.owner === publicKey?.toString() ? 1 : 0;
           const bMine = b.owner === publicKey?.toString() ? 1 : 0;
@@ -89,7 +89,7 @@ export default function CommunitiesDirectoryModal() {
               No matching communities found in the index.
             </div>
           ) : (
-            filtered.map(comm => {
+            filtered.map((comm:any) => {
               const stats = getStats(comm.id);
               const isMine = comm.owner === publicKey?.toString();
               const creatorDisplayName = userMap[comm.owner]?.username || comm.owner.slice(0, 8);

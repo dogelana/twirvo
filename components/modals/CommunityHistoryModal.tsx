@@ -45,7 +45,7 @@ export default function CommunityHistoryModal() {
                 <tr className={`border-b-4 ${theme === 'dark' ? 'border-gray-800 text-gray-500' : 'border-gray-300 text-gray-500'} text-[10px] uppercase font-black tracking-widest`}><th className="p-4 px-6 border-r border-gray-800/50">Timestamp</th><th className="p-4 px-6 border-r border-gray-800/50">Action Type</th><th className="p-4 px-6 border-r border-gray-800/50">Details</th><th className="p-4 px-6 border-r border-gray-800/50">Media</th><th className="p-4 px-6 border-r border-gray-800/50">Biography</th><th className="p-4 px-6 border-r border-gray-800/50">Attached Links</th><th className="p-4 px-6">Ledger Verification</th></tr>
               </thead>
               <tbody className="divide-y divide-gray-800/50">
-                {history.map((h) => (
+                {history.map((h:any) => (
                   <tr key={h.txSig} className={`transition-colors ${theme === 'dark' ? 'hover:bg-white/5' : 'hover:bg-black/5'}`}><td className="p-4 px-6 border-r border-gray-800/50 align-top whitespace-nowrap">
                       <p className="text-xs font-bold text-gray-400">{new Date(h.timestamp).toLocaleString()}</p>
                     </td><td className="p-4 px-6 border-r border-gray-800/50 align-top whitespace-nowrap">

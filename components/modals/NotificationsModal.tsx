@@ -199,7 +199,7 @@ export default function NotificationsModal() {
               {myNotifications.length > 0 ? 'The only notifications available are simulated (hidden)' : 'No new notifications'}
             </p>
           ) : (
-            filteredNotifs.map(notif => (
+            filteredNotifs.map((notif: any) => (
               <NotificationItem key={notif.signature} notif={notif} theme={theme} />
             ))
           )}
