@@ -125,7 +125,7 @@ export function useTwirvoLedger(connection: any, publicKey: PublicKey | null, pe
               }
             } catch(err) { await sleep(500); }
             setSyncProgress({ current: i + 1, total: missingSigs.length });
-            if (missingSigs.length > 5) await sleep(200);
+            if (missingSigs.length > 5) await sleep(50);
         }
         localStorage.setItem('twirvo_cache_v1', JSON.stringify(localCache));
       }
