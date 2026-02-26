@@ -7,7 +7,7 @@ function NotificationItem({ notif, theme }: { notif: any, theme: string }) {
   const { 
     userMap, markNotifRead, markNotifUnread, dismissNotif, 
     setView, setActiveSig, setActiveUser, txLedger, setShowNotifsModal,
-    communityMap, setActiveCommunity, setFilter, profanityFilterEnabled 
+    communityMap, setActiveCommunity, setFilter, profanityFilterEnabled, publicKey 
   } = useTwirvo();
   
   const itemRef = useRef<HTMLDivElement>(null);
