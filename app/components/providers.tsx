@@ -4,8 +4,8 @@ import { SolanaProvider } from "@solana/react-hooks";
 import { PropsWithChildren } from "react";
 import { autoDiscover, createClient } from "@solana/client";
 
-// Look for a hidden environment variable first. If it's missing, use the public devnet.
-const rpcUrl = process.env.NEXT_PUBLIC_SOLANA_RPC_URL || "https://api.devnet.solana.com";
+// HARDCODE the Helius URL here to bypass the .env injection issue
+const rpcUrl = "https://devnet.helius-rpc.com/?api-key=bac353a5-4f8f-41e5-94d6-015c520e6a81";
 
 const client = createClient({
   endpoint: rpcUrl,
