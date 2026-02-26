@@ -110,7 +110,7 @@ export default function SyncOverlay() {
               : 'Establishing Connection...'}
           </p>
           <p className="text-red-500 mt-6 text-xs uppercase font-black tracking-[0.3em]">
-            Rate Limiting Active • 2 Requests / Sec
+            Rate Limiting Active • 5 Requests / Sec
           </p>
         </div>
       )}

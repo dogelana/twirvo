@@ -90,12 +90,12 @@ export default function SettingsModal() {
     }
 
     setIsWiping(true);
-    triggerToast("Clearing memory... applying 500ms safety delay", "info");
+    triggerToast("Clearing memory... applying 200ms safety delay", "info");
 
     setTimeout(() => {
       localStorage.removeItem('twirvo_cache_v1');
       window.location.reload();
-    }, 500); 
+    }, 200); 
   };
 
   return (
@@ -260,7 +260,7 @@ export default function SettingsModal() {
             >
               {isWiping ? 'Processing RPC Delay...' : confirmWipe ? 'CONFIRM FULL WIPE?' : 'Wipe All Cached Transactions'}
             </button>
-            <p className="text-[10px] uppercase font-black text-gray-600 mt-4 tracking-widest">Standard RPC Sync Rules: 2 Requests / Sec (500ms Delay)</p>
+            <p className="text-[10px] uppercase font-black text-gray-600 mt-4 tracking-widest">Standard RPC Sync Rules: 5 Requests / Sec (200ms Delay)</p>
           </div>
         </div>
       </div>
