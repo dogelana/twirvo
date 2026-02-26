@@ -3,7 +3,6 @@
 import React, { useMemo, useEffect, useState } from 'react';
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
-import { clusterApiUrl } from '@solana/web3.js';
 import '@solana/wallet-adapter-react-ui/styles.css';
 
 // Context
@@ -73,7 +72,7 @@ function TwirvoApp() {
   );
 
   const btnBase = `flex items-center justify-center border-2 md:border-4 rounded-full shadow-2xl transition-all hover:scale-110 active:scale-95 
-                   p-4 md:p-5 lg:p-7 text-2xl md:text-3xl lg:text-5xl flex-shrink-0`;
+                    p-4 md:p-5 lg:p-7 text-2xl md:text-3xl lg:text-5xl flex-shrink-0`;
   const btnTheme = theme === 'dark' ? 'bg-gray-900 border-gray-800 shadow-blue-500/20' : 'bg-white border-gray-200 shadow-blue-500/10';
 
   return (
@@ -149,7 +148,7 @@ function TwirvoApp() {
                 window.history.pushState({}, '', `/${currentProfile?.username || publicKey?.toString()}`); 
               }} 
               className={`flex items-center justify-center border-2 md:border-4 rounded-full shadow-2xl transition-all hover:scale-110 active:scale-95 flex-shrink-0
-                         w-16 h-16 md:w-20 md:h-20 lg:w-28 lg:h-28 ${btnTheme}`}
+                          w-16 h-16 md:w-20 md:h-20 lg:w-28 lg:h-28 ${btnTheme}`}
             >
               <img src={currentProfile?.pfp || DEFAULT_PFP} className="w-full h-full rounded-full object-cover" alt="My Profile" />
             </button>
@@ -179,7 +178,11 @@ function TwirvoApp() {
 }
 
 export default function TwirvoPage() {
-  const endpoint = useMemo(() => clusterApiUrl('devnet'), []);
+  // Use the Helius URL from environment variables, fallback to public devnet if missing
+  const endpoint = useMemo(() => 
+    process.env.NEXT_PUBLIC_SOLANA_RPC_URL || "https://api.devnet.solana.com", 
+  []);
+
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
   if (!mounted) return <div className="bg-black min-h-screen" />;
