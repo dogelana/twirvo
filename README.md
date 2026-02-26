@@ -80,9 +80,9 @@ npm install
 npm run dev
 ```
 
-Connect Wallet: Ensure your wallet is set to the same Solana network as your RPC.
-Onboarding: Whitelisted wallets automatically bypass all protocol and tip fees.
-Exploration: Use the sidebar orbs to navigate the Global Directory, view Notifications, or manage Settings.
+1. **Connect Wallet**: Ensure your wallet is set to the correct **Solana** network.
+2. **Onboarding**: Whitelisted wallets automatically bypass all protocol and tip fees.
+3. **Exploration**: Use the sidebar orbs to navigate the **Global Directory**, view Notifications, manage Settings, etc.
 
 ---
 
