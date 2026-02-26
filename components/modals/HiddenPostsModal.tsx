@@ -23,7 +23,7 @@ export default function HiddenPostsModal() {
   };
 
   // FEATURE #13: Apply the toggle filter to the underlying arrays
-  const visibleHiddenPosts = hiddenPosts.filter(sig => {
+  const visibleHiddenPosts = hiddenPosts.filter((sig: any) => {
     if (showSimulatedBlocklist) return true;
     const post = txLedger[sig];
     if (post?.isSimulated || sig.startsWith('sim_')) return false;
