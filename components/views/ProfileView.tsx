@@ -102,7 +102,7 @@ export default function ProfileView() {
   const isBlocked = blockedUsers.includes(activeUser);
 
   // --- UI LISTS: CLEAN VIEW (STILL SCRUBS DELETIONS) ---
-  const userPosts = posts.filter(p => 
+  const userPosts = posts.filter((p:any) => 
     p.owner === activeUser && 
     !deletedCommunitySigs.includes(p.signature) && 
     !isParentDeleted(p.signature)
@@ -142,7 +142,7 @@ export default function ProfileView() {
      if (tx.type === 'remove_dislike' || tx.type === 'remove_community_dislike' || tx.type === 'remove_user_dislike') activeDislikesMap.delete(target);
   });
 
-  const userLikes = Array.from(activeLikesMap.values()).filter(tx => {
+  const userLikes = Array.from(activeLikesMap.values()).filter((tx:any) => {
      if (!tx) return false;
      if (tx.type.includes('user')) {
         // GHOST USER SCRUB: Hide interactions if target simulated user has been wiped from ledger state
@@ -152,7 +152,7 @@ export default function ProfileView() {
      return !isParentDeleted(tx.parent || tx.parent_post || tx.text);
   });
   
-  const userDislikes = Array.from(activeDislikesMap.values()).filter(tx => {
+  const userDislikes = Array.from(activeDislikesMap.values()).filter((tx:any) => {
      if (!tx) return false;
      if (tx.type.includes('user')) {
         const target = tx.parent || tx.text;
@@ -393,7 +393,7 @@ export default function ProfileView() {
         </div>
 
         <div className="grid grid-cols-3 md:grid-cols-7 gap-4 mt-16 pt-8 border-t border-gray-800/50">
-          {STATS.map(s => (
+          {STATS.map((s:any) => (
             <div key={s.label} className="text-center">
               <p className="text-3xl md:text-4xl font-black text-blue-500">{s.value}</p>
               <p className="text-[10px] font-black uppercase tracking-widest text-gray-500 mt-2">{s.label}</p>
@@ -403,7 +403,7 @@ export default function ProfileView() {
       </div>
 
       <div className={`flex flex-wrap border-b-2 ${theme === 'dark' ? 'border-gray-800 bg-black/95' : 'border-gray-200 bg-white/95'} sticky top-[480px] z-20`}>
-        {TABS.map(t => (
+        {TABS.map((t:any) => (
           <button 
             key={t} 
             onClick={() => setProfileTab(t)} 
@@ -423,13 +423,13 @@ export default function ProfileView() {
         
         {profileTab === 'comments' && (
           userComments.length > 0 
-            ? userComments.sort((a,b) => b.timestamp - a.timestamp).map(c => <CommentNode key={c.signature} comment={c} />)
+            ? userComments.sort((a,b) => b.timestamp - a.timestamp).map((c:any) => <CommentNode key={c.signature} comment={c} />)
             : <EmptyNotice msg="No active comments found for this user in historical records." />
         )}
         
         {profileTab === 'likes' && (
           <div className="divide-y divide-gray-800/50">
-            {userLikes.length === 0 ? <EmptyNotice msg="This user hasn't liked any active records yet." /> : userLikes.sort((a,b) => b.timestamp - a.timestamp).map(tx => {
+            {userLikes.length === 0 ? <EmptyNotice msg="This user hasn't liked any active records yet." /> : userLikes.sort((a,b) => b.timestamp - a.timestamp).map((tx:any) => {
               const targetSig = tx.parent || tx.parent_post || tx.text;
               
               if (tx.type === 'community_like') {
@@ -465,7 +465,7 @@ export default function ProfileView() {
                  );
               }
               else {
-                 const t = posts.find(p => p.signature === targetSig) || txLedger[targetSig];
+                 const t = posts.find((p:any) => p.signature === targetSig) || txLedger[targetSig];
                  if (!t) return null;
                  const opName = userMap[t.owner || t.sender]?.username || (t.owner || t.sender)?.slice(0, 8);
                  return (
@@ -483,7 +483,7 @@ export default function ProfileView() {
         
         {profileTab === 'dislikes' && (
           <div className="divide-y divide-gray-800/50">
-            {userDislikes.length === 0 ? <EmptyNotice msg="No active dislikes found for this user." /> : userDislikes.sort((a,b) => b.timestamp - a.timestamp).map(tx => {
+            {userDislikes.length === 0 ? <EmptyNotice msg="No active dislikes found for this user." /> : userDislikes.sort((a,b) => b.timestamp - a.timestamp).map((tx:any) => {
               const targetSig = tx.parent || tx.parent_post || tx.text;
               
               if (tx.type === 'community_dislike') {
@@ -519,7 +519,7 @@ export default function ProfileView() {
                  );
               }
               else {
-                 const t = posts.find(p => p.signature === targetSig) || txLedger[targetSig];
+                 const t = posts.find((p:any) => p.signature === targetSig) || txLedger[targetSig];
                  if (!t) return null;
                  const opName = userMap[t.owner || t.sender]?.username || (t.owner || t.sender)?.slice(0, 8);
                  return (
@@ -539,7 +539,7 @@ export default function ProfileView() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-12">
             {joinedComms.length === 0 
               ? <div className="col-span-2"><EmptyNotice msg="No memberships found for this user in any communities." /></div>
-              : joinedComms.map(id => {
+              : joinedComms.map((id:any) => {
                 const comm = communityMap[id];
                 if (!comm) return null;
                 const isOwner = comm.owner === activeUser; 
@@ -568,7 +568,7 @@ export default function ProfileView() {
           <div className="p-12 grid grid-cols-1 lg:grid-cols-2 gap-6">
             {followers.length === 0 
               ? <div className="lg:col-span-2"><EmptyNotice msg="No other users are currently following this profile." /></div>
-              : followers.map(w => {
+              : followers.map((w:any) => {
                 const u = userMap[w] || {};
                 const followerName = u.username || w.slice(0, 8);
                 return (
@@ -585,7 +585,7 @@ export default function ProfileView() {
           <div className="p-12 grid grid-cols-1 lg:grid-cols-2 gap-6">
             {following.length === 0 
               ? <div className="lg:col-span-2"><EmptyNotice msg="This user is not currently following anyone yet." /></div>
-              : following.map(w => {
+              : following.map((w:any) => {
                 const u = userMap[w] || {};
                 const followerName = u.username || w.slice(0, 8);
                 return (

@@ -30,10 +30,10 @@ export default function IdentityAuditView() {
       .sort((a, b) => a.timestamp - b.timestamp);
 
     return {
-      names: userActions.filter(tx => tx.type === 'username_set'),
-      pfps: userActions.filter(tx => tx.type === 'profile_picture_set'),
-      bios: userActions.filter(tx => tx.type === 'profile_bio_set' || tx.type === 'bio_set'),
-      links: userActions.filter(tx => tx.type === 'link_set'),
+      names: userActions.filter((tx:any) => tx.type === 'username_set'),
+      pfps: userActions.filter((tx:any) => tx.type === 'profile_picture_set'),
+      bios: userActions.filter((tx:any) => tx.type === 'profile_bio_set' || tx.type === 'bio_set'),
+      links: userActions.filter((tx:any) => tx.type === 'link_set'),
     };
   }, [idAuditSig, txLedger]);
 

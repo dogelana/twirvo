@@ -237,7 +237,7 @@ export default function FeedView() {
              "No records match your current filters."}
           </div>
         ) : (
-          sortedPosts.map((post) => {
+          sortedPosts.map((post: any) => {
             const user = userMap[post.owner] || {};
             const stats = statsMap[post.signature] || { likes: [], dislikes: [], comments: [], parent: null };
             const deleteAction = stats.parent ? "remove_comment" : "remove_post";
