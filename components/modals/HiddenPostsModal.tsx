@@ -30,7 +30,7 @@ export default function HiddenPostsModal() {
     return true;
   });
 
-  const visibleBlockedUsers = blockedUsers.filter(wallet => {
+  const visibleBlockedUsers = blockedUsers.filter((wallet: any) => {
     if (showSimulatedBlocklist) return true;
     const user = userMap[wallet];
     if (user?.isSimulated || wallet.startsWith('Simulated')) return false;
