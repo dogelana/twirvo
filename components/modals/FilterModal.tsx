@@ -11,7 +11,7 @@ export default function FilterModal() {
 
   const update = (key: string, val: string) => {
     const num = val === '' ? 0 : parseInt(val);
-    setThresholds(prev => ({ ...prev, [key]: num }));
+    setThresholds((prev: any) => ({ ...prev, [key]: num }));
   };
 
   return (
