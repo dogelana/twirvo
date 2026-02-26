@@ -22,7 +22,7 @@ export default function GlobalUsersModal() {
   const commMembers = isCommContext ? (communityStatsMap[activeCommunity]?.members || []) : [];
 
   const filteredUsers = useMemo(() => {
-    return globalWalletList.filter(w => {
+    return globalWalletList.filter((w: any) => {
       if (!showSimulatedUsers && userMap[w]?.isSimulated) return false;
 
       if (isCommContext && !commMembers.includes(w)) return false;
