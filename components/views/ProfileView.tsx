@@ -417,19 +417,19 @@ export default function ProfileView() {
       <div className="min-h-screen">
         {profileTab === 'posts' && (
           userPosts.length > 0 
-            ? userPosts.sort((a,b) => b.timestamp - a.timestamp).map(renderPostBlock)
+            ? userPosts.sort((a: any, b: any) => b.timestamp - a.timestamp).map(renderPostBlock)
             : <EmptyNotice msg="No active posts found etched to the ledger by this user." />
         )}
         
         {profileTab === 'comments' && (
           userComments.length > 0 
-            ? userComments.sort((a,b) => b.timestamp - a.timestamp).map((c:any) => <CommentNode key={c.signature} comment={c} />)
+            ? userComments.sort((a: any, b: any) => b.timestamp - a.timestamp).map((c:any) => <CommentNode key={c.signature} comment={c} />)
             : <EmptyNotice msg="No active comments found for this user in historical records." />
         )}
         
         {profileTab === 'likes' && (
           <div className="divide-y divide-gray-800/50">
-            {userLikes.length === 0 ? <EmptyNotice msg="This user hasn't liked any active records yet." /> : userLikes.sort((a,b) => b.timestamp - a.timestamp).map((tx:any) => {
+            {userLikes.length === 0 ? <EmptyNotice msg="This user hasn't liked any active records yet." /> : userLikes.sort((a: any, b: any) => b.timestamp - a.timestamp).map((tx:any) => {
               const targetSig = tx.parent || tx.parent_post || tx.text;
               
               if (tx.type === 'community_like') {
@@ -483,7 +483,7 @@ export default function ProfileView() {
         
         {profileTab === 'dislikes' && (
           <div className="divide-y divide-gray-800/50">
-            {userDislikes.length === 0 ? <EmptyNotice msg="No active dislikes found for this user." /> : userDislikes.sort((a,b) => b.timestamp - a.timestamp).map((tx:any) => {
+            {userDislikes.length === 0 ? <EmptyNotice msg="No active dislikes found for this user." /> : userDislikes.sort((a: any, b: any) => b.timestamp - a.timestamp).map((tx:any) => {
               const targetSig = tx.parent || tx.parent_post || tx.text;
               
               if (tx.type === 'community_dislike') {
