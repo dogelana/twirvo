@@ -62,7 +62,7 @@ export default function ForensicAuditModal() {
                       {/* Active Target */}
                       <div className={`p-8 border-4 rounded-[40px] ${theme === 'dark' ? 'bg-blue-600/5 border-blue-600/10 text-white' : 'bg-blue-50 border-blue-200 text-gray-900'}`}>
                          <p className="text-[10px] text-blue-500 font-black uppercase mb-4 tracking-widest">Active Entry</p>
-                         <p className="text-xl italic mb-6">"{[...posts, ...Object.values(statsMap).flatMap(s => s.comments)].find(x => x.signature === examineSig)?.text}"</p>
+                         <p className="text-xl italic mb-6">"{[...posts, ...Object.values(statsMap).flatMap((s: any) => s.comments)].find((x: any) => x.signature === examineSig)?.text}"</p>
                          {!examineSig.startsWith('sim_') && (
                            <div className="flex gap-6">
                              <button onClick={() => { setActiveSig(examineSig); setView('direct'); setExamineSig(null); window.history.pushState({}, '', `/${examineSig}`); }} className="text-blue-500 text-xs underline font-bold uppercase hover:text-blue-400 transition-colors">Traverse to Entry ↗</button>
