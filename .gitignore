@@ -1,41 +1,22 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
-
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
+# Dependency directories
+node_modules/
+/dist
 /build
+.next/
 
-# misc
+# Environment variables (CRITICAL SAFETY)
+# These protect your future RPC URLs and API Keys
+.env
+.env.local
+.env.production
+.env.development.local
+.env.test.local
+
+# Operating System files
 .DS_Store
-*.pem
+Thumbs.db
 
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# env files (can opt-in for committing if needed)
-.env*
-
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# Protocol Specific / Cache
+# Keeps your local sync data from cluttering the repo
+twirvo_cache_v1
+.npm
