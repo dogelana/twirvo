@@ -52,10 +52,17 @@ export function useTwirvoUI() {
   const [showImageInput, setShowImageInput] = useState(false);
   const [showLinkInput, setShowLinkInput] = useState(false);
 
-  const [toast, setToast] = useState<{ message: string, type: 'success' | 'error', id: number } | null>(null);
-  const triggerToast = (message: string, type: 'success' | 'error') => {
-    setToast({ message, type, id: Date.now() });
-  };
+// 1. Update the state type definition
+const [toast, setToast] = useState<{ 
+  message: string, 
+  type: 'success' | 'error' | 'info' | 'warning', // Add these two
+  id: number 
+} | null>(null);
+
+// 2. Update the function parameter type
+const triggerToast = (message: string, type: 'success' | 'error' | 'info' | 'warning') => {
+  setToast({ message, type, id: Date.now() });
+};
 
   const [theme, setTheme] = useState('dark');
   useEffect(() => {
