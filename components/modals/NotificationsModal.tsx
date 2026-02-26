@@ -165,7 +165,7 @@ export default function NotificationsModal() {
     setShowSimulatedNotifs 
   } = useTwirvo();
 
-  const filteredNotifs = myNotifications.filter(n => 
+  const filteredNotifs = myNotifications.filter((n: any) => 
     showSimulatedNotifs ? true : !n.isSimulated
   );
 
