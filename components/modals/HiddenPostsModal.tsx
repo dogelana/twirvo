@@ -114,7 +114,7 @@ export default function HiddenPostsModal() {
                  {blockedUsers.length > 0 ? 'All blocked users are currently filtered out (Simulated)' : 'No blocked users'}
               </p>
             ) : (
-              visibleBlockedUsers.map(wallet => {
+              visibleBlockedUsers.map((wallet:any) => {
                 const user = userMap[wallet] || {};
                 
                 return (
